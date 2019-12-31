@@ -1,11 +1,11 @@
 <?php
-namespace ZendTest\Mvc\Service;
+namespace LaminasTest\Mvc\Service;
 
+use Laminas\ServiceManager\Di\DiAbstractServiceFactory;
+use Laminas\ServiceManager\Di\DiAbstractServiceFactoryFactory;
+use Laminas\ServiceManager\Di\DiFactory;
+use Laminas\ServiceManager\ServiceManager;
 use PHPUnit\Framework\TestCase;
-use Zend\ServiceManager\Di\DiAbstractServiceFactory;
-use Zend\ServiceManager\Di\DiAbstractServiceFactoryFactory;
-use Zend\ServiceManager\Di\DiFactory;
-use Zend\ServiceManager\ServiceManager;
 
 class DiAbstractServiceFactoryFactoryTest extends TestCase
 {

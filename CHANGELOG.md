@@ -44,14 +44,14 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#18](https://github.com/zendframework/zend-servicemanager-di/pull/18) fixes `Zend\ServiceManager\Di\DiServiceFactory::__invoke`
+- [zendframework/zend-servicemanager-di#18](https://github.com/zendframework/zend-servicemanager-di/pull/18) fixes `Laminas\ServiceManager\Di\DiServiceFactory::__invoke`
   when parameter `$options` is `null`.
 
 ## 1.2.0 - 2018-04-30
 
 ### Added
 
-- [#16](https://github.com/zendframework/zend-servicemanager-di/pull/16) adds support for 7.2.
+- [zendframework/zend-servicemanager-di#16](https://github.com/zendframework/zend-servicemanager-di/pull/16) adds support for 7.2.
 
 ### Changed
 
@@ -63,7 +63,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#16](https://github.com/zendframework/zend-servicemanager-di/pull/16) removes support for HHVM.
+- [zendframework/zend-servicemanager-di#16](https://github.com/zendframework/zend-servicemanager-di/pull/16) removes support for HHVM.
 
 ### Fixed
 
@@ -73,7 +73,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- [#12](https://github.com/zendframework/zend-servicemanager-di/pull/12) adds
+- [zendframework/zend-servicemanager-di#12](https://github.com/zendframework/zend-servicemanager-di/pull/12) adds
   support for PHP 7.1 and 7.2.
 
 ### Deprecated
@@ -86,7 +86,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#3](https://github.com/zendframework/zend-servicemanager-di/pull/3) fixes a
+- [zendframework/zend-servicemanager-di#3](https://github.com/zendframework/zend-servicemanager-di/pull/3) fixes a
   number of import statements, removing several unused statements, adding
   missing statements, and fixing those refering to container-interop interfaces.
 
@@ -102,11 +102,11 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
-  support for zend-servicemanager v2. Because this package duplicated several
-  classes from zend-servicemanager v2, it caused conflicts, which could be
+- [zendframework/zend-servicemanager-di#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
+  support for laminas-servicemanager v2. Because this package duplicated several
+  classes from laminas-servicemanager v2, it caused conflicts, which could be
   observed when generating an optimized autoloader with Composer.
-- [#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
+- [zendframework/zend-servicemanager-di#1](https://github.com/zendframework/zend-servicemanager-di/pull/1) removes
   support for PHP 5.5, marking PHP 5.6 as the minimum supported version.
 
 ### Fixed
@@ -147,7 +147,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Imports a patch from [zend-mvc](https://github.com/zendframework/zend-mvc/pull/149)
+- Imports a patch from [laminas-mvc](https://github.com/zendframework/zend-mvc/pull/149)
   that fixes some issues with the `DiAbstractServiceFactoryFactory` due to
   incorrect variable names and import statements.
 
@@ -155,8 +155,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 First stable release.
 
-This package replaces the zend-servicemanager <-> zend-di integration originally
-found in zend-servicemanager and zend-mvc in the v2 releases.
+This package replaces the laminas-servicemanager <-> laminas-di integration originally
+found in laminas-servicemanager and laminas-mvc in the v2 releases.
 
 ### Added
 
