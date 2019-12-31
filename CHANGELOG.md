@@ -6,8 +6,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 First stable release.
 
-This package replaces the zend-servicemanager <-> zend-di integration originally
-found in zend-servicemanager and zend-mvc in the v2 releases.
+This package replaces the laminas-servicemanager <-> laminas-di integration originally
+found in laminas-servicemanager and laminas-mvc in the v2 releases.
 
 ### Added
 
