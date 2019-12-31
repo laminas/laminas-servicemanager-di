@@ -1,16 +1,17 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager-di for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager-di/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\ServiceManager\Di;
+namespace Laminas\ServiceManager\Di;
 
 use Exception;
 use Interop\Container\ContainerInterface;
-use Zend\Di\Di;
-use Zend\ServiceManager\AbstractPluginManager;
+use Laminas\Di\Di;
+use Laminas\ServiceManager\AbstractPluginManager;
 
 class DiServiceInitializer extends Di
 {
@@ -48,12 +49,12 @@ class DiServiceInitializer extends Di
     }
 
     /**
-     * Initialize an instance via zend-di.
+     * Initialize an instance via laminas-di.
      *
      * @param mixed|ContainerInterface $first Container when under
-     *     zend-servicemanager v3, instance to initialize otherwise.
+     *     laminas-servicemanager v3, instance to initialize otherwise.
      * @param ContainerInterface|mixed $second Instance to initialize when
-     *     under zend-servicemanager v3, container otherwise.
+     *     under laminas-servicemanager v3, container otherwise.
      * @return void
      */
     public function __invoke($first, $second)

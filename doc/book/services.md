@@ -1,8 +1,8 @@
 # Services Provided
 
-zend-servicemanager-di provides a number of factories and services that
-integrate [zend-di](https://github.com/zendframework/zend-di) into
-[zend-servicemanager](https://zendframework.github.io/zend-servicemanager/).
+laminas-servicemanager-di provides a number of factories and services that
+integrate [laminas-di](https://github.com/laminas/laminas-di) into
+[laminas-servicemanager](https://docs.laminas.dev/laminas-servicemanager/).
 The following lists each, and details:
 
 - whether or not they are registered by default; and
@@ -10,25 +10,25 @@ The following lists each, and details:
 
 ## DiFactory
 
-`Zend\ServiceManager\Di\DiFactory` creates and returns a `Zend\Di\Di` instance.
+`Laminas\ServiceManager\Di\DiFactory` creates and returns a `Laminas\Di\Di` instance.
 If the `config` service is present, and contains a top-level `di` key, the value
-of that key will be used to seed a `Zend\Di\Config` instance, which will then in
+of that key will be used to seed a `Laminas\Di\Config` instance, which will then in
 turn be used to configure the `Di` instance.
 
 By default, this factory is mapped to the service name `DependencyInjector`, and
 aliased to `Di`.
 
 Configuration for the service should follow the rules for
-[`Zend\Di\Config`](http://framework.zend.com/manual/current/en/modules/zend.di.configuration.html).
+[`Laminas\Di\Config`](https://docs.laminas.dev/laminas.di.configuration.html).
 
 ## DiServiceFactory
 
-`Zend\ServiceManager\Di\DiServiceFactory` provides a zend-di-backed factory that
+`Laminas\ServiceManager\Di\DiServiceFactory` provides a laminas-di-backed factory that
 will use the name provided and attempt to create the relevant object instance.
 
 The constructor accepts three arguments:
 
-- `$di`, a `Zend\Di\Di` instance.
+- `$di`, a `Laminas\Di\Di` instance.
 - `$useContainer`, one of the class constants `USE_SL_BEFORE_DI`,
   `USE_SL_AFTER_DI`, `USE_SL_NONE`, as detailed below.
 
@@ -51,10 +51,10 @@ configured `Di` instance. In most cases, you will use the
 
 ## DiAbstractServiceFactory
 
-`Zend\ServiceManager\Di\DiAbstractServiceFactory` provides an [abstract
-factory](http://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/#abstract-factories)
+`Laminas\ServiceManager\Di\DiAbstractServiceFactory` provides an [abstract
+factory](http://docs.laminas.dev/laminas-servicemanager/configuring-the-service-manager/#abstract-factories)
 that will, on invocation, pull the requested class from the composed
-`Zend\Di\Di` instance. It extends `DiServiceFactory` to provide the utilities
+`Laminas\Di\Di` instance. It extends `DiServiceFactory` to provide the utilities
 necessary to act as an abstract factory.
 
 When determining if a requested service can be created, it does the following,
@@ -103,11 +103,11 @@ before many services are pulled from the container.
 
 ## DiStrictAbstractServiceFactory
 
-`Zend\ServiceManager\Di\DiStrictAbstractServiceFactory` works similarly to
+`Laminas\ServiceManager\Di\DiStrictAbstractServiceFactory` works similarly to
 `DiAbstractServiceFactory` and `DiServiceFactory`, with a few key differences.
 
-First, unlike `DiAbstractServiceFactory`, it directly extends `Zend\Di\Di`; as
-such, it acts exactly like `Zend\Di\Di`, except where it specifically overloads
+First, unlike `DiAbstractServiceFactory`, it directly extends `Laminas\Di\Di`; as
+such, it acts exactly like `Laminas\Di\Di`, except where it specifically overloads
 functionality. Second, it implements a *whitelist*; if the requested class does
 not exist in the whitelist, the abstract factory will not attempt to create an
 instance. This latter is useful for creating a *scoped* `Di` instance. As an
@@ -138,7 +138,7 @@ This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.
 
 By default, `DiStrictAbstractServiceFactory` is consumed by
-`Zend\Mvc\Controller\ControllerManager`; if the abstract factory is detected, it
+`Laminas\Mvc\Controller\ControllerManager`; if the abstract factory is detected, it
 is added as an abstract factory to the `ControllerManager` instance.
 
 Thsu, by default, the factory for building the `DiStrictAbstractServiceFactory`
@@ -156,7 +156,7 @@ return [
 ```
 
 You can use `DiStrictAbstractServiceFactory` in other locations as well, and
-with other configuration. Consider using [delegator factories](http://zendframework.github.io/zend-servicemanager/delegators/)
+with other configuration. Consider using [delegator factories](http://docs.laminas.dev/laminas-servicemanager/delegators/)
 in order to seed the `DiStrictAbstractServiceFactory`:
 
 ```php
@@ -177,14 +177,14 @@ public function __invoke(ContainerInterface $container, $name, callable $callbac
 
 ## DiServiceInitializer
 
-`Zend\ServiceManager\Di\DiServiceInitializer` is a zend-servicemanager
-[initializer](http://zendframework.github.io/zend-servicemanager/configuring-the-service-manager/#initializers),
+`Laminas\ServiceManager\Di\DiServiceInitializer` is a laminas-servicemanager
+[initializer](http://docs.laminas.dev/laminas-servicemanager/configuring-the-service-manager/#initializers),
 and can be used to initialize instances after they've already been pulled from
 the container. This functionality can work with invokable services, or to
-augment existing factories in your zend-servicemanager configuration.
+augment existing factories in your laminas-servicemanager configuration.
 
-Because the initializer requires a `Zend\Di\Di` instance, as well as the parent
-application container, it is registered with zend-servicemanager, and you will
+Because the initializer requires a `Laminas\Di\Di` instance, as well as the parent
+application container, it is registered with laminas-servicemanager, and you will
 need to retrieve it and add it as an initializer manually, typically in an
 application module's `onBootstrap()` method:
 
