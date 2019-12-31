@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager-di for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager-di/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ServiceManager\Di;
+namespace LaminasTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
+use Laminas\Di\Di;
+use Laminas\Di\InstanceManager;
+use Laminas\ServiceManager\Di\DiInstanceManagerProxy;
+use Laminas\ServiceManager\Di\DiServiceInitializer;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use Zend\Di\Di;
-use Zend\Di\InstanceManager;
-use Zend\ServiceManager\Di\DiInstanceManagerProxy;
-use Zend\ServiceManager\Di\DiServiceInitializer;
 
 class DiServiceInitializerTest extends TestCase
 {
@@ -49,7 +50,7 @@ class DiServiceInitializerTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\Di\DiServiceInitializer::__invoke
+     * @covers \Laminas\ServiceManager\Di\DiServiceInitializer::__invoke
      */
     public function testInitializeUsingV2Api()
     {
@@ -62,7 +63,7 @@ class DiServiceInitializerTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\Di\DiServiceInitializer::__invoke
+     * @covers \Laminas\ServiceManager\Di\DiServiceInitializer::__invoke
      */
     public function testInitializeUsingV3Api()
     {
@@ -75,7 +76,7 @@ class DiServiceInitializerTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\Di\DiServiceInitializer::__invoke
+     * @covers \Laminas\ServiceManager\Di\DiServiceInitializer::__invoke
      * @todo this needs to be moved into its own class
      */
     public function testProxyInstanceManagersStayInSync()

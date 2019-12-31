@@ -1,15 +1,16 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager-di for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager-di/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\ServiceManager\Di;
+namespace Laminas\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class DiServiceInitializerFactory implements FactoryInterface
 {
@@ -29,7 +30,7 @@ class DiServiceInitializerFactory implements FactoryInterface
     /**
      * Create and return DiServiceInitializer instance
      *
-     * For use with zend-servicemanager v2; proxies to __invoke().
+     * For use with laminas-servicemanager v2; proxies to __invoke().
      *
      * @param ServiceLocatorInterface $container
      * @return DiServiceInitializer

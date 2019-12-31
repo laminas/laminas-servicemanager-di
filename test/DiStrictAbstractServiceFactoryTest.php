@@ -1,20 +1,21 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager-di for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager-di/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ServiceManager\Di;
+namespace LaminasTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
+use Laminas\Di\Config;
+use Laminas\Di\Di;
+use Laminas\ServiceManager\Di\DiStrictAbstractServiceFactory;
+use Laminas\ServiceManager\Exception\InvalidServiceException;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use Zend\Di\Config;
-use Zend\Di\Di;
-use Zend\ServiceManager\Di\DiStrictAbstractServiceFactory;
-use Zend\ServiceManager\Exception\InvalidServiceException;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 class DiStrictAbstractServiceFactoryTest extends TestCase
 {
