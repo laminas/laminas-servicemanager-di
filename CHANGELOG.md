@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Imports a patch from [zend-mvc](https://github.com/zendframework/zend-mvc/pull/149)
+- Imports a patch from [laminas-mvc](https://github.com/zendframework/zend-mvc/pull/149)
   that fixes some issues with the `DiAbstractServiceFactoryFactory` due to
   incorrect variable names and import statements.
 
@@ -26,8 +26,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 First stable release.
 
-This package replaces the zend-servicemanager <-> zend-di integration originally
-found in zend-servicemanager and zend-mvc in the v2 releases.
+This package replaces the laminas-servicemanager <-> laminas-di integration originally
+found in laminas-servicemanager and laminas-mvc in the v2 releases.
 
 ### Added
 
