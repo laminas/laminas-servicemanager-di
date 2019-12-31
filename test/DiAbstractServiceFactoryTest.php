@@ -1,20 +1,21 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-servicemanager-di for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-servicemanager-di/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager-di for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager-di/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager-di/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ServiceManager\Di;
+namespace LaminasTest\ServiceManager\Di;
 
 use Interop\Container\ContainerInterface;
+use Laminas\Di\Definition\DefinitionInterface;
+use Laminas\Di\Di;
+use Laminas\Di\InstanceManager;
+use Laminas\ServiceManager\Di\DiAbstractServiceFactory;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use Zend\Di\Definition\DefinitionInterface;
-use Zend\Di\Di;
-use Zend\Di\InstanceManager;
-use Zend\ServiceManager\Di\DiAbstractServiceFactory;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 class DiAbstractServiceFactoryTest extends TestCase
 {
@@ -42,7 +43,7 @@ class DiAbstractServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::__construct
+     * @covers \Laminas\ServiceManager\Di\DiAbstractServiceFactory::__construct
      */
     public function testConstructor()
     {
@@ -55,8 +56,8 @@ class DiAbstractServiceFactoryTest extends TestCase
     /**
      * @group 6021
      *
-     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
-     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::get
+     * @covers \Laminas\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
+     * @covers \Laminas\ServiceManager\Di\DiAbstractServiceFactory::get
      */
     public function testCreateServiceWithNameAndWithoutRequestName()
     {
@@ -69,8 +70,8 @@ class DiAbstractServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
-     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::get
+     * @covers \Laminas\ServiceManager\Di\DiAbstractServiceFactory::createServiceWithName
+     * @covers \Laminas\ServiceManager\Di\DiAbstractServiceFactory::get
      */
     public function testCreateServiceWithName()
     {
@@ -83,7 +84,7 @@ class DiAbstractServiceFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\Di\DiAbstractServiceFactory::canCreateServiceWithName
+     * @covers \Laminas\ServiceManager\Di\DiAbstractServiceFactory::canCreateServiceWithName
      */
     public function testCanCreateServiceWithName()
     {
