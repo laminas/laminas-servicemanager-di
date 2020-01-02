@@ -1,13 +1,14 @@
 docs_dir: docs/book
 site_dir: docs/html
 nav:
-    - { Home: index.md }
-    - { Services: services.md }
-    - { Migration: [{ 'Version 2 to Version 3': migration/v2-to-v3.md }] }
+    - Home: index.md
+    - Services: services.md
+    - Migration:
+      - "Version 2 to Version 3": migration/v2-to-v3.md
 site_name: laminas-servicemanager-di
 site_description: 'laminas-di integration for laminas-servicemanager'
 repo_url: 'https://github.com/laminas/laminas-servicemanager-di'
 extra:
-    show_special_homepage: true
-    project: Components
-    project_url: 'https://docs.laminas.dev'
+  project: Components
+  project_url: 'https://docs.laminas.dev'
+  show_special_homepage: true
