@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="laminas-di integration for laminas-servicemanager">  
-    <link rel="canonical" href="https://docs.laminas.dev/migration/v2-to-v3/">
     <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
 
-    <title>Version 2 to Version 3 - laminas-servicemanager-di - Laminas Docs</title>
+    <title>laminas-servicemanager-di - Laminas Docs</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -20,7 +19,7 @@
     <div class="container">
         
         <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
-            <img src="../../img/laminas-foundation-white.svg" height="28" alt="Laminas">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Laminas">
         </a>
         <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
             Documentation
@@ -59,7 +58,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="../..">laminas-servicemanager-di</a>
+            <a href="../.">laminas-servicemanager-di</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -74,7 +73,7 @@
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="../../services/" class="subnavigation__link">Services</a>
+                                <a href="../services/" class="subnavigation__link">Services</a>
                             </li>
                         
                     
@@ -92,8 +91,8 @@
                                 <ul class="subnavigation__list">
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Version 2 to Version 3</a>
+    <li class="subnavigation__list-item ">
+        <a href="../migration/v2-to-v3/" class="subnavigation__link">Version 2 to Version 3</a>
     </li>
 
                                     
@@ -162,139 +161,21 @@
         <div class="row">
             <div class="col-md-2 col-sm-12">
                 
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">On this page</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#laminas-servicemanager-functionality" class="toc__link">laminas-servicemanager functionality</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#laminas-mvc-functionality" class="toc__link">laminas-mvc functionality</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
             </div>
             <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
                 
-                    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        
-            <li class="breadcrumb-item"><a href="">Overview</a></li>
 
-            
-                <li class="breadcrumb-item"><a href="../..">laminas-servicemanager-di</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-                
-                    
-                        
-                        
-                            <li class="breadcrumb-item">Migration</li>
-                        
-                    
-                
-
-                <li class="breadcrumb-item active" aria-current="page">Version 2 to Version 3</li>
-            
-        
-    </ol>
-</nav>
+<a href="../." class="btn btn-default" role="button">Go to homepage</a>
 
 
-
-
-
-
-    
-    
-        <h2 class="chapter__headline">Migration</h2>
-    
-
-    <h1 id="migration-from-laminas-mvc-v2-diservicemanager-integration">Migration: From laminas-mvc v2 DI/ServiceManager integration</h1>
-<p>laminas-servicemanager-di ports all DI integration present in:</p>
-<ul>
-<li><a href="https://docs.laminas.dev/laminas-servicemanager">laminas-servicemanager</a>, and</li>
-<li><a href="https://docs.laminas.dev/laminas-mvc">laminas-mvc</a></li>
-</ul>
-<p>to a single, optional component. As such, a number of classes were renamed that
-may impact end-users.</p>
-<h2 id="laminas-servicemanager-functionality">laminas-servicemanager functionality</h2>
-<p>The following classes were originally in laminas-servicemanager, but are now
-shipped as part of this package:</p>
-<ul>
-<li><code>Laminas\ServiceManager\Di\DiAbstractServiceFactory</code></li>
-<li><code>Laminas\ServiceManager\Di\DiInstanceManagerProxy</code></li>
-<li><code>Laminas\ServiceManager\Di\DiServiceFactory</code></li>
-<li><code>Laminas\ServiceManager\Di\DiServiceInitializer</code></li>
-</ul>
-<p>Some functionality was altered slightly to allow usage under both
-laminas-servicemanager v2 and v3, including how instance names and
-instance-specific parameters are handled.</p>
-<h3>DiServiceFactory</h3>
-<p>The constructor was changed to remove the <code>$name</code> and <code>$parameters</code> arguments.
-These are now passed at invocation of the factory instead, making it perform
-more correctly with relation to other <code>FactoryInterface</code> implementations.</p>
-<h2 id="laminas-mvc-functionality">laminas-mvc functionality</h2>
-<p>The following classes were renamed:</p>
-<ul>
-<li><code>Laminas\Mvc\Service\DiAbstractServiceFactoryFactory</code> was renamed to
-  <code>Laminas\ServiceManager\Di\DiAbstractServiceFactoryFactory</code>.</li>
-<li><code>Laminas\Mvc\Service\DiServiceInitializerFactory</code> was renamed to
-  <code>Laminas\ServiceManager\Di\DiServiceInitializerFactory</code>.</li>
-<li><code>Laminas\Mvc\Service\DiFactory</code> was renamed to
-  <code>Laminas\ServiceManager\Di\DiFactory</code>.</li>
-<li><code>Laminas\Mvc\Service\DiStrictAbstractServiceFactory</code> was renamed to
-  <code>Laminas\ServiceManager\Di\DiStrictAbstractServiceFactory</code></li>
-<li><code>Laminas\Mvc\Service\DiStrictAbstractServiceFactoryFactory</code> was renamed to
-  <code>Laminas\ServiceManager\Di\DiStrictAbstractServiceFactoryFactory</code></li>
-</ul>
-<p>All of the above are registered under service names identical to those used in
-v2 versions of laminas-mvc, meaning no change in usage for the majority of use
-cases.</p>
-
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../../services/">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-servicemanager-di/edit/master/docs/book/migration/v2-to-v3.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             </div>
             <div class="col-md-3 col-sm-12 sidebar">
                 
@@ -309,7 +190,7 @@ cases.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="../..">laminas-servicemanager-di</a>
+            <a href="../.">laminas-servicemanager-di</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -324,7 +205,7 @@ cases.</p>
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="../../services/" class="subnavigation__link">Services</a>
+                                <a href="../services/" class="subnavigation__link">Services</a>
                             </li>
                         
                     
@@ -342,8 +223,8 @@ cases.</p>
                                 <ul class="subnavigation__list">
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Version 2 to Version 3</a>
+    <li class="subnavigation__list-item ">
+        <a href="../migration/v2-to-v3/" class="subnavigation__link">Version 2 to Version 3</a>
     </li>
 
                                     
@@ -434,12 +315,12 @@ cases.</p>
 </footer>
 
     <script>
-        let base_url = '../..',
+        let base_url = '..',
             project  = "components",
             siteName = 'laminas-servicemanager-di';
     </script>
     <script src="/js/scripts.js"></script>
-        <script src="../../search/main.js"></script>
+        <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

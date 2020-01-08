@@ -20,7 +20,7 @@
     <div class="container">
         
         <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
-            <img src="../img/laminas-foundation-white.svg" height="28" alt="Lamnias">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Laminas">
         </a>
         <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
             Documentation
@@ -36,13 +36,17 @@
             
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="https://getlaminas.org/about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://getlaminas.org/blog" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://docs.laminas.dev" class="nav-link">All Docs</a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                            All Docs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="https://docs.laminas.dev/components">Components</a>
+                            <a class="dropdown-item" href="https://docs.mezzio.dev/">Mezzio</a>
+                            <a class="dropdown-item" href="https://api-tools.getlaminas.org/docs">API Tools</a>
+                            <a class="dropdown-item" href="https://docs.laminas.dev/mvc">MVC</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
@@ -291,17 +295,16 @@ service.</p>
 <code>DiAbstractServiceFactory</code> by default. To register it as an abstract factory in
 your code, you will need to manually register it. This will typically be done
 via one of your application modules, within the <code>onBootstrap()</code> method:</p>
-<p> <div class=codehilite><pre><span></span><span class=x>class Module</span>
-<span class=x>{</span>
-<span class=x>    public function onBootstrap($e)</span>
-<span class=x>    {</span>
-<span class=x>        $app = $e-&gt;getTarget();</span>
-<span class=x>        $services = $app-&gt;getServiceManager();</span>
+<pre class=codehilite><code class=language-php>class Module
+{
+    public function onBootstrap($e)
+    {
+        $app = $e-&gt;getTarget();
+        $services = $app-&gt;getServiceManager();
 
-<span class=x>        $services-&gt;addAbstractFactory($services-&gt;get(&#39;DiAbstractServiceFactory&#39;));</span>
-<span class=x>    }</span>
-<span class=x>}</span>
-</pre></div></p>
+        $services-&gt;addAbstractFactory($services-&gt;get('DiAbstractServiceFactory'));
+    }
+}</code></pre>
 <p>This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.</p>
 <h2 id="districtabstractservicefactory">DiStrictAbstractServiceFactory</h2>
@@ -320,17 +323,16 @@ create an instance!</p>
 <code>DiStrictAbstractServiceFactory</code> by default. To register it as an abstract factory in
 your code, you will need to manually register it. This will typically be done
 via one of your application modules, within the <code>onBootstrap()</code> method:</p>
-<p> <div class=codehilite><pre><span></span><span class=x>class Module</span>
-<span class=x>{</span>
-<span class=x>    public function onBootstrap($e)</span>
-<span class=x>    {</span>
-<span class=x>        $app = $e-&gt;getTarget();</span>
-<span class=x>        $services = $app-&gt;getServiceManager();</span>
+<pre class=codehilite><code class=language-php>class Module
+{
+    public function onBootstrap($e)
+    {
+        $app = $e-&gt;getTarget();
+        $services = $app-&gt;getServiceManager();
 
-<span class=x>        $services-&gt;addAbstractFactory($services-&gt;get(&#39;DiStrictAbstractServiceFactory&#39;));</span>
-<span class=x>    }</span>
-<span class=x>}</span>
-</pre></div></p>
+        $services-&gt;addAbstractFactory($services-&gt;get('DiStrictAbstractServiceFactory'));
+    }
+}</code></pre>
 <p>This should typically be done in a module registered early, to ensure it happens
 before many services are pulled from the container.</p>
 <p>By default, <code>DiStrictAbstractServiceFactory</code> is consumed by
@@ -339,31 +341,29 @@ is added as an abstract factory to the <code>ControllerManager</code> instance.<
 <p>Thsu, by default, the factory for building the <code>DiStrictAbstractServiceFactory</code>
 instance checks for configuration under <code>di.allowed_controllers</code>; this should
 be an array of controller names to add to the service:</p>
-<p> <div class=codehilite><pre><span></span><span class=x>return [</span>
-<span class=x>    &#39;di&#39; =&gt; [</span>
-<span class=x>        &#39;allowed_controllers&#39; =&gt; [</span>
-<span class=x>            &#39;Some\Controller\Name&#39;,</span>
-<span class=x>        ],</span>
-<span class=x>    ],</span>
-<span class=x>];</span>
-</pre></div></p>
+<pre class=codehilite><code class=language-php>return [
+    'di' =&gt; [
+        'allowed_controllers' =&gt; [
+            'Some\Controller\Name',
+        ],
+    ],
+];</code></pre>
 <p>You can use <code>DiStrictAbstractServiceFactory</code> in other locations as well, and
 with other configuration. Consider using <a href="http://docs.laminas.dev/laminas-servicemanager/delegators/">delegator factories</a>
 in order to seed the <code>DiStrictAbstractServiceFactory</code>:</p>
-<p> <div class=codehilite><pre><span></span><span class=x>public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)</span>
-<span class=x>{</span>
-<span class=x>    $diStrictAbstractFactory = $callback();</span>
+<pre class=codehilite><code class=language-php>public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
+{
+    $diStrictAbstractFactory = $callback();
 
-<span class=x>    $config = $container-&gt;has(&#39;config&#39;) ? $container-&gt;get(&#39;config&#39;) : [];</span>
+    $config = $container-&gt;has('config') ? $container-&gt;get('config') : [];
 
-<span class=x>    if (! isset($config[&#39;application_di_class_whitelist&#39;])) {</span>
-<span class=x>        return $diStrictAbstractFactory;</span>
-<span class=x>    }</span>
+    if (! isset($config['application_di_class_whitelist'])) {
+        return $diStrictAbstractFactory;
+    }
 
-<span class=x>    $diStrictAbstractFactory-&gt;setAllowedServiceNames($config[&#39;application_di_class_whitelist&#39;]);</span>
-<span class=x>    return $diStrictAbstractFactory;</span>
-<span class=x>}</span>
-</pre></div></p>
+    $diStrictAbstractFactory-&gt;setAllowedServiceNames($config['application_di_class_whitelist']);
+    return $diStrictAbstractFactory;
+}</code></pre>
 <h2 id="diserviceinitializer">DiServiceInitializer</h2>
 <p><code>Laminas\ServiceManager\Di\DiServiceInitializer</code> is a laminas-servicemanager
 <a href="http://docs.laminas.dev/laminas-servicemanager/configuring-the-service-manager/#initializers">initializer</a>,
@@ -374,17 +374,16 @@ augment existing factories in your laminas-servicemanager configuration.</p>
 application container, it is registered with laminas-servicemanager, and you will
 need to retrieve it and add it as an initializer manually, typically in an
 application module's <code>onBootstrap()</code> method:</p>
-<p> <div class=codehilite><pre><span></span><span class=x>class Module</span>
-<span class=x>{</span>
-<span class=x>    public function onBootstrap($e)</span>
-<span class=x>    {</span>
-<span class=x>        $app = $e-&gt;getTarget();</span>
-<span class=x>        $services = $app-&gt;getServiceManager();</span>
+<pre class=codehilite><code class=language-php>class Module
+{
+    public function onBootstrap($e)
+    {
+        $app = $e-&gt;getTarget();
+        $services = $app-&gt;getServiceManager();
 
-<span class=x>        $services-&gt;addInitializer($services-&gt;get(&#39;DiServiceInitializer&#39;));</span>
-<span class=x>    }</span>
-<span class=x>}</span>
-</pre></div></p>
+        $services-&gt;addInitializer($services-&gt;get('DiServiceInitializer'));
+    }
+}</code></pre>
 <p>We do not recommend using this functionality, as initializers are run for every
 new instance retrieved, and the functionality could conflict with existing
 factories for services.</p>
@@ -509,9 +508,10 @@ factories for services.</p>
             <div class="col-md-7 offset-md-2">
                 <h5>Laminas</h5>
                 <ul>
-                    <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
-                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
-                    <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                    <li>Laminas Project <a href="https://getlaminas.org/">The new foundation for the community-supported, open source continuation of Zend Framework</a></li>
+                    <li>Laminas Components and MVC <a href="https://docs.laminas.dev/">Components and MVC for enterprise applications</a></li>
+                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 middleware in minutes</a></li>
+                    <li>Laminas API Tools <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
                 </ul>
             </div>
         </div>
@@ -548,7 +548,7 @@ factories for services.</p>
                 <h4 class="footer__headline">License</h4>
                 <p>
                     Code licensed under <a
-                        href="https://github.com/laminas/laminas-servicemanager-di//blob/master/LICENSE.md">BSD 3-Clause</a>.
+                        href="https://github.com/laminas/laminas-servicemanager-di/blob/master/LICENSE.md">BSD 3-Clause</a>.
                 </p>
             </div>
 
@@ -557,8 +557,8 @@ factories for services.</p>
                 <h4 class="footer__headline">Copyright</h4>
                 <p>
                     <!--Built with love by the Laminas team with the help of our
-                    <a href="https://github.com/laminas/laminas-servicemanager-di//graphs/contributors">contributors</a>.<br>-->
-                    &copy; 2019-2019 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                    <a href="https://github.com/laminas/laminas-servicemanager-di/graphs/contributors">contributors</a>.<br>-->
+                    &copy; 2019-2020 by <a href="https://getlaminas.org/">The Laminas Project</a>.
                 </p>
             </div>
         </div>
