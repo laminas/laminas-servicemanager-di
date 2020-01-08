@@ -10,5 +10,4 @@ site_description: 'laminas-di integration for laminas-servicemanager'
 repo_url: 'https://github.com/laminas/laminas-servicemanager-di'
 extra:
   project: Components
-  project_url: 'https://docs.laminas.dev'
   show_special_homepage: true

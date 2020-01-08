@@ -1,6 +1,6 @@
 # laminas-servicemanager-di
 
-[![Build Status](https://travis-ci.org/laminas/laminas-servicemanager-di.svg?branch=master)](https://travis-ci.org/laminas/laminas-servicemanager-di)
+[![Build Status](https://travis-ci.com/laminas/laminas-servicemanager-di.svg?branch=master)](https://travis-ci.com/laminas/laminas-servicemanager-di)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-servicemanager-di/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-servicemanager-di?branch=master)
 
 Provides integration for [laminas-di](https://github.com/laminas/laminas-di)
