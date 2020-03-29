@@ -63,6 +63,6 @@
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
     "replace": {
-        "zendframework/zend-servicemanager-di": "self.version"
+        "zendframework/zend-servicemanager-di": "^1.2.1"
     }
 }
